@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --primary-color: #27ae60;
+    --secondary-color: #ecf0f1;
+    --primary-text-color: #ecf0f1;
+    --primary-text-color-active: #ffffff;
+    --secondary-text-color: #27ae60;
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    // This defines what 1rem is
+    font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
+    height: 100%;
+}
+
+body {
+    box-sizing: border-box;
+    font-family: "Raleway", sans-serif;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+
+::selection {
+    background-color: var(--primary-color);
+    color: var(--primary-text-color);
+}

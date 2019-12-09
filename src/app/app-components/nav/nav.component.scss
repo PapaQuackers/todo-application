@@ -1,0 +1,63 @@
+$primary-color: var(--primary-color);
+$primary-text: var(--primary-text-color);
+$primary-text-active: var(--primary-text-color-active);
+
+
+:host{
+    display: block;
+}
+
+.nav-bar{
+    width: 100%;
+    background: $primary-color;
+    color: $primary-text;
+    margin: none;
+    padding: 10px 5px 10px 5px;
+    font-size: 2rem;
+    &__list{
+       display: flex;
+       align-items: center;
+       list-style: none;
+       padding: 0;
+       margin: 0;
+       
+       &--item{
+        transition: all .2s;
+        &:after{
+            content: '';
+            width: 0px;
+            height: 2px;
+            background-color: $primary-text;
+            display: block;
+            transition: all .2s;
+        }
+
+        :link{
+            color: $primary-text;
+            text-decoration: none;
+        }
+        :visited{
+            color: $primary-text;
+            text-decoration: none;
+        }
+
+        &:hover{
+            &:after{
+                width: 100%;
+            }
+        }
+
+        :active{
+            color: $primary-text-active;
+        }
+
+        &:not(:last-child){
+            margin-right: 4rem;
+        }
+
+        &:last-child{
+            margin-left: auto;
+        }
+       }
+    }
+}
