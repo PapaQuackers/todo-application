@@ -1,9 +1,19 @@
 <nav class="nav-bar">
     <ul class="nav-bar__list">
-      <li class="nav-bar__list--item"><a routerLink="">Home</a></li>
-      <li class="nav-bar__list--item"><a routerLink="/todos">Todos</a></li>
-      <li class="nav-bar__list--item"><a routerLink="">Tags</a></li>
-      <li class="nav-bar__list--item"><a routerLink="">Analytics</a></li>
-      <li class="nav-bar__list--item"><a routerLink="/login">Login</a></li>
+      <li class="nav-bar__list--item" routerLinkActive="selected"><a routerLink="">Home</a></li>
+      <li class="nav-bar__list--item" routerLinkActive="selected"><a routerLink="/todos">Todos</a></li>
+      <li class="nav-bar__list--item" routerLinkActive="selected"><a routerLink="/tags">Tags</a></li>
+      <li class="nav-bar__list--item" routerLinkActive="selected"><a routerLink="/analytics">Analytics</a></li>
+      <li class="nav-bar__list--item" 
+      routerLinkActive="selected" 
+      *ngIf="!(userData$ | async); else userInfo">
+        <a routerLink="/login">Login</a>
+      </li>
+      <ng-template #userInfo>
+      <li class="nav-bar__list--non-item logout">
+          <span>Welcome back, {{(userData$ | async)?.firstName}}</span>
+          <button (click)="logout()">Logout</button>
+      </li>
+    </ng-template>
     </ul>
   </nav>

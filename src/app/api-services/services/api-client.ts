@@ -11,7 +11,7 @@ export class APIClient {
   private _baseUrl: string;
 
   constructor(private readonly _httpClient: HttpClient) {
-    this._baseUrl = `localhost:4200/`;
+    this._baseUrl = `https://localhost:44385/`;
   }
 
   delete<TResponse>(

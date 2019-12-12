@@ -1,6 +1,8 @@
-<form>
-    <input type="text" placeholder="username">
-    <input type="text" placeholder="password">
+
+<h1>Welcome to Todo Manager!</h1>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <input type="text" placeholder="Username" formControlName="userName">
+    <input type="password" placeholder="Password" formControlName="password">
     <button>Login</button>
 </form>
-<div>Not registered? <a routerLink="/">Create an account</a></div>
+<div>Not registered? <button (click)="emitRegistrationRequested()">Create an account</button></div>

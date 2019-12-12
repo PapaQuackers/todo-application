@@ -1,4 +1,5 @@
 
 <div class="card">
-    <todo-login-form></todo-login-form>
+    <todo-login-form *ngIf="showLogin" (registrationRequested)="setShowLogin(false)"></todo-login-form>
+    <todo-register-form *ngIf="!showLogin" (loginRequested)="setShowLogin(true)"></todo-register-form>
 </div>
