@@ -1,0 +1,52 @@
+$primary-color: var(--primary-color);
+$primary-text: var(--primary-text-color);
+$primary-text-active: var(--primary-text-color-active);
+
+
+button.todo-button {
+    display: inline-block;
+    border: none;
+    padding: 1rem 2rem;
+    margin: 0;
+    text-decoration: none;
+    background-color: var(--primary-color);
+    color: var(--primary-text-color);
+    font-family: inherit;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out, 
+                transform 150ms ease;
+    border-radius: 6px;
+
+    &:hover,
+    &:focus {
+    background: #fa5542;
+}
+
+&:focus {
+    outline: none;
+    
+}
+
+&:active {
+    transform: scale(0.99);
+}
+}
+
+button.todo-link-button {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    font-family: inherit;
+    color: var(--primary-color);
+    text-decoration: none;
+    cursor: pointer;
+
+    &:active{
+        color: #fa5542;
+    }
+
+    &:focus{
+        outline: none;
+    }
+  }

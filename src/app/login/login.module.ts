@@ -6,6 +6,7 @@ import { LoginComponent } from './login.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { UserService } from './services/user.service';
+import { ButtonModule } from '../shared/button/button.module';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { UserService } from './services/user.service';
     CommonModule,
     LoginRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    ButtonModule
   ],
   providers: [
     UserService

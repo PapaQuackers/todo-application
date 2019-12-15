@@ -90,4 +90,84 @@ $primary-text-active: var(--primary-text-color-active);
         }
        }
     }
+
+    .searchbar{
+        margin-left: auto;
+        width: 50%;
+        display: inline-block;
+        position: relative;
+
+        .panel{
+            display: none;
+            transition: all .2s;
+            background: white;
+            color: black;
+            border-radius: 0 0 6px 6px;
+            box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+            z-index: 99;
+            top: 100%;
+            left: 0;
+            right: 0;
+            position: absolute;
+            ul {
+                padding: 0;
+                list-style: none;
+                margin: 0;
+                font-family: inherit;
+                li {
+                    padding: 5px;
+                    &:first-child{
+                        border-radius: 1px 1px 0 0;
+                    }
+                    &:last-child{
+                        border-radius: 0 0 6px 6px;
+                    }
+                    cursor: pointer;
+                    &:hover{
+                        background: rgba(0,0,0,.1);
+                    }
+                }
+            }
+        }
+
+        input{
+            width: 80%;
+            margin:0;
+            border:0;
+            padding: 1rem;
+            display:inline-block;
+            vertical-align:middle;
+            white-space:normal;
+            background:none;
+            line-height:1;
+            font-family: inherit;
+            font-size: 12px;
+            transition: all .2s;
+            cursor: pointer;
+            border-bottom: 1px solid $primary-text-active;
+            &::placeholder{
+                color: $primary-text-active;
+            }
+
+            &:hover{
+                background: rgba(255, 255, 255, 0.2);
+                border-radius: 6px;
+            }
+
+            &:focus{
+                outline: none;
+                color: black;
+                background: white;
+                width: 100%;
+                border-radius: 6px 6px 0 0;
+                &::placeholder{
+                    color: black;
+                }
+
+                + .panel{
+                    display: block;
+                }
+            }
+        }
+    }
 }

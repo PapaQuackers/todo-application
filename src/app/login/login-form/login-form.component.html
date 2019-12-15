@@ -3,6 +3,6 @@
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <input type="text" placeholder="Username" formControlName="userName">
     <input type="password" placeholder="Password" formControlName="password">
-    <button>Login</button>
+    <button todo-button>Login</button>
 </form>
-<div>Not registered? <button (click)="emitRegistrationRequested()">Create an account</button></div>
+<div>Not registered? <button todo-link-button (click)="emitRegistrationRequested()">Create an account</button></div>

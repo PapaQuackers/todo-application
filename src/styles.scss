@@ -1,10 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./assets/scss/common";
 :root {
-    --primary-color: #27ae60;
+    --primary-color: #e74c3c;
     --secondary-color: #ecf0f1;
     --primary-text-color: #ecf0f1;
     --primary-text-color-active: #ffffff;
-    --secondary-text-color: #27ae60;
+    --secondary-text-color: #e74c3c;
 }
 
 *,

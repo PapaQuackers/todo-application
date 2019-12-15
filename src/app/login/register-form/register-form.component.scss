@@ -25,47 +25,11 @@ form{
         }
     }
 
-    button{
-        padding: 1rem 2rem;
-        font-size: 2rem;
-        font-family: inherit;
-        border-radius: 6px;
-        background-color: var(--primary-color);
-        color: var(--primary-text-color);
-        cursor: pointer;
-        border: 1px solid var(--primary-color);
-        outline: none;
-        transition: all .2s;
-
-        &:focus{
-            outline: none;
-        }
-
-        &:active{
-            outline: none;
-            background: var(--primary-text-color);
-            color: var(--primary-color);
-        }
-    }
 }
 
 div{
     font-size: 1.3rem;
     color: rgb(141, 141, 141);
-
-    button {
-        background: none!important;
-        border: none;
-        padding: 0!important;
-        font-family: inherit;
-        color: var(--primary-color);
-        text-decoration: none;
-        cursor: pointer;
-
-        &:focus{
-            outline: none;
-        }
-      }
 }
 
 h1{
