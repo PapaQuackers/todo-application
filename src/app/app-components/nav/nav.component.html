@@ -3,14 +3,7 @@
       <li class="nav-bar__list--item" routerLinkActive="selected" [routerLinkActiveOptions]="{exact:true}"><a routerLink="">Home</a></li>
       <li class="nav-bar__list--item" routerLinkActive="selected" [routerLinkActiveOptions]="{exact:true}"><a routerLink="/todos">Todos</a></li>
       <li class="nav-bar__list--non-item searchbar"> 
-        <input placeholder="Search..."/>
-        <div class="panel">
-          <ul>
-            <li>Option</li>
-            <li>Option</li>
-            <li>Option</li>
-          </ul>
-        </div>
+        <input placeholder="Search..." (focus)="showMenu()" (blur)="closeMenu()" #input/>
       </li>
       <li class="nav-bar__list--item"
       [routerLinkActiveOptions]="{exact:true}" 
