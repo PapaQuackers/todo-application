@@ -3,7 +3,11 @@
       <li class="nav-bar__list--item" routerLinkActive="selected" [routerLinkActiveOptions]="{exact:true}"><a routerLink="">Home</a></li>
       <li class="nav-bar__list--item" routerLinkActive="selected" [routerLinkActiveOptions]="{exact:true}"><a routerLink="/todos">Todos</a></li>
       <li class="nav-bar__list--non-item searchbar"> 
-        <input placeholder="Search..." (focus)="showMenu()" (blur)="closeMenu()" #input/>
+        <input [todoMenuFor]="menuTemplate" placeholder="Search..." #input/>
+        <ng-template #menuTemplate>
+          <todo-menu>
+          </todo-menu>
+        </ng-template>
       </li>
       <li class="nav-bar__list--item"
       [routerLinkActiveOptions]="{exact:true}" 

@@ -6,23 +6,23 @@ import { AppComponent } from './app.component';
 import { ApiServicesModule } from './api-services/api-services.module';
 import { NavComponent } from './app-components/nav/nav.component';
 import {OverlayModule} from '@angular/cdk/overlay';
-import { MenuComponent } from './app-components/menu/menu.component';
+import { MenuModule } from './shared/menu/menu.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent,
-    MenuComponent
+    NavComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ApiServicesModule,
-    OverlayModule
+    OverlayModule,
+    MenuModule
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [MenuComponent]
+  entryComponents: []
 })
 export class AppModule { }
