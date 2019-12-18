@@ -3,11 +3,12 @@
       <li class="nav-bar__list--item" routerLinkActive="selected" [routerLinkActiveOptions]="{exact:true}"><a routerLink="">Home</a></li>
       <li class="nav-bar__list--item" routerLinkActive="selected" [routerLinkActiveOptions]="{exact:true}"><a routerLink="/todos">Todos</a></li>
       <li class="nav-bar__list--non-item searchbar"> 
-        <input [todoMenuFor]="menuTemplate" placeholder="Search..." #input/>
-        <ng-template #menuTemplate>
-          <todo-menu>
+        <input [todoMenu]="menuTemplate" placeholder="Search..." #input/>
+          <todo-menu (selectedValue)="logValue($event)" #menuTemplate>
+            <todo-menu-option value="dog">Dog</todo-menu-option>
+            <todo-menu-option value="cat">Cat</todo-menu-option>
+            <todo-menu-option value="pig">Pig</todo-menu-option>
           </todo-menu>
-        </ng-template>
       </li>
       <li class="nav-bar__list--item"
       [routerLinkActiveOptions]="{exact:true}" 

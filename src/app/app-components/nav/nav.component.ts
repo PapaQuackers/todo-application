@@ -22,4 +22,8 @@ export class NavComponent implements OnInit {
   logout(){
     this.applicationService.logout();
   }
+
+  logValue(data: any){
+    console.log(data);
+  }
 }
