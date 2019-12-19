@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { APIClient } from './services/api-client';
 import { UserApi } from './services/user-api';
 import { HttpClientModule } from '@angular/common/http';
+import { TodoApi } from './services/todo-api';
 
 
 
@@ -14,7 +15,10 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   providers: [
     APIClient,
-    UserApi
+    UserApi,
+    TodoApi
+  ],
+  exports: [
   ]
 })
 export class ApiServicesModule { }

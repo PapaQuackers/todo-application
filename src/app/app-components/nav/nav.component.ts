@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApplicationService } from 'src/app/application-wide-services/application.service';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/models/user.model';
+import { TodoApi } from 'src/app/api-services/services/todo-api';
 
 
 @Component({
@@ -13,7 +14,7 @@ export class NavComponent implements OnInit {
 
 
   userData$: Observable<User>;
-  constructor(private applicationService: ApplicationService) { }
+  constructor(private applicationService: ApplicationService, private todoAPI: TodoApi) { }
 
   ngOnInit() {
     this.userData$ = this.applicationService.user$;
@@ -25,5 +26,9 @@ export class NavComponent implements OnInit {
 
   logValue(data: any){
     console.log(data);
+  }
+
+  searchTodos(search: string){
+    this.todoAPI.getAllTodos(search).subscribe(console.log);
   }
 }
