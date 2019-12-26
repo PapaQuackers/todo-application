@@ -1,0 +1,41 @@
+:host{
+    display: block;
+    width: 100%;
+}
+
+.toast{
+    max-width: 350px;
+    min-width: 300px;
+    overflow: hidden;
+    font-size: 1.3rem;
+    background-color: rgba(255,255,255,.85);
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: .25rem;
+    box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,.1);
+    backdrop-filter: blur(10px);
+    opacity: 1;
+    display: block;
+    font-family: "Raleway", sans-serif;
+
+    &__header{
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        padding: .25rem .75rem;
+        color: #6c757d;
+        background-color: rgba(255,255,255,.85);
+        background-clip: padding-box;
+        border-bottom: 1px solid rgba(0,0,0,.05);
+        &--square{
+            height: 20px;
+            width: 20px;
+            border-radius: 3px;
+            margin-right: 5px;
+        }
+    }
+
+    &__body{
+        padding: .75rem;
+    }
+}

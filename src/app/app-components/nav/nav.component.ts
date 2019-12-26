@@ -3,6 +3,9 @@ import { ApplicationService } from 'src/app/application-wide-services/applicatio
 import { Observable } from 'rxjs';
 import { User } from 'src/app/models/user.model';
 import { TodoApi } from 'src/app/api-services/services/todo-api';
+import { Todo } from 'src/app/models/todo.model';
+import { map, debounceTime, distinctUntilChanged, share } from 'rxjs/operators';
+import { FormControl } from '@angular/forms';
 
 
 @Component({
@@ -14,10 +17,18 @@ export class NavComponent implements OnInit {
 
 
   userData$: Observable<User>;
+  todoSearches$: Observable<Todo[]>;
+  searchControl: FormControl = new FormControl();
   constructor(private applicationService: ApplicationService, private todoAPI: TodoApi) { }
 
   ngOnInit() {
     this.userData$ = this.applicationService.user$;
+    this.searchControl.valueChanges.pipe(
+      debounceTime(1000),
+      distinctUntilChanged()
+    ).subscribe(v => {
+      this.searchTodos(v)
+    })
   }
 
   logout(){
@@ -29,6 +40,10 @@ export class NavComponent implements OnInit {
   }
 
   searchTodos(search: string){
-    this.todoAPI.getAllTodos(search).subscribe(console.log);
+    console.log(search);
+    this.todoSearches$ = this.todoAPI.getAllTodos(search).pipe(
+      map(r => r.data),
+      share()
+    )
   }
 }

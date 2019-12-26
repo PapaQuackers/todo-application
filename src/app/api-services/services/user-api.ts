@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { APIClient } from './api-client';
 import { User } from 'src/app/models/user.model';
 import { RegisterModel } from 'src/app/login/register-form/register-model';
+import { ToastService } from 'src/app/shared/toast/toast/toast.service';
 
 @Injectable()
 export class UserApi {

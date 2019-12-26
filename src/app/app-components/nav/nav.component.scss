@@ -110,6 +110,7 @@ $primary-text-active: var(--primary-text-color-active);
             font-size: 12px;
             transition: all .2s;
             cursor: pointer;
+            color: white;
             border-bottom: 1px solid $primary-text-active;
             &::placeholder{
                 color: $primary-text-active;

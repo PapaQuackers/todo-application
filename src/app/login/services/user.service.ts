@@ -5,6 +5,7 @@ import { LoginModel } from '../login-form/login-model';
 import { map, first } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { RegisterModel } from '../register-form/register-model';
+import { ToastService } from 'src/app/shared/toast/toast/toast.service';
 
 @Injectable()
 export class UserService {
@@ -12,18 +13,23 @@ export class UserService {
   constructor(
     private userApi: UserApi, 
     private appService: ApplicationService,
-    private router: Router) { 
+    private router: Router, 
+    private toastService: ToastService) { 
 
   }
 
   loginUser(loginData: LoginModel){
     this.userApi.loginUser(loginData.userName, loginData.password)
     .pipe(
-      map(res => res.data),
       first()
-    ).subscribe(userData => {
-      this.appService.setUser(userData);
-      this.router.navigate(['']);
+    ).subscribe(res => {
+      if(res.status){
+        this.appService.setUser(res.data);
+        this.router.navigate(['']);
+        this.toastService.show({type: 'success', headerText: 'Hooray!', 'bodyText': "Welcome to Todo Manager!"})
+      } else {
+        this.toastService.show({type: 'danger', headerText: 'Login Error!', 'bodyText': res.message})
+      }
     })
   }
 

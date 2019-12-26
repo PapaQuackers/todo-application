@@ -1,0 +1,10 @@
+<div class="toast">
+    <div class="toast__header">
+        <div class="toast__header--square" [ngStyle]="{
+            'background': this.backgroundColor
+        }">&nbsp;</div>
+    <strong style="margin-right: auto">{{data.headerText}}</strong>
+    <span (click)="close()" style="cursor: pointer">X</span>
+    </div>
+<div class="toast__body">{{data.bodyText}}</div>
+</div>

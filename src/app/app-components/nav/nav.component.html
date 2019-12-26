@@ -3,11 +3,10 @@
       <li class="nav-bar__list--item" routerLinkActive="selected" [routerLinkActiveOptions]="{exact:true}"><a routerLink="">Home</a></li>
       <li class="nav-bar__list--item" routerLinkActive="selected" [routerLinkActiveOptions]="{exact:true}"><a routerLink="/todos">Todos</a></li>
       <li class="nav-bar__list--non-item searchbar"> 
-        <input [todoMenu]="menuTemplate" placeholder="Search..." #input (keyup.enter)="searchTodos(input.value)"/>
+        <input [todoMenu]="menuTemplate" placeholder="Search..." #input [formControl]="searchControl"/>
           <todo-menu (selectedValue)="logValue($event)" #menuTemplate>
-            <todo-menu-option value="dog">Dog</todo-menu-option>
-            <todo-menu-option value="cat">Cat</todo-menu-option>
-            <todo-menu-option value="pig">Pig</todo-menu-option>
+            <todo-menu-option *ngIf="(todoSearches$ === null || todoSearches$ === undefined) || (todoSearches$ | async)?.length === 0">Search for a value</todo-menu-option>
+            <todo-menu-option *ngFor="let todo of todoSearches$ | async" [value]="todo.id">{{todo.comment}}</todo-menu-option>
           </todo-menu>
       </li>
       <li class="nav-bar__list--item"

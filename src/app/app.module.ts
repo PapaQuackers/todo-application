@@ -9,6 +9,8 @@ import {OverlayModule} from '@angular/cdk/overlay';
 import { MenuModule } from './shared/menu/menu.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './api-services/services/interceptor';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ToastModule } from './shared/toast/toast.module';
 
 
 @NgModule({
@@ -21,7 +23,10 @@ import { TokenInterceptorService } from './api-services/services/interceptor';
     AppRoutingModule,
     ApiServicesModule,
     OverlayModule,
-    MenuModule
+    MenuModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ToastModule.forRoot()
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true}],
   bootstrap: [AppComponent],

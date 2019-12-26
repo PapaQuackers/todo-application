@@ -19,5 +19,11 @@ export class MenuForDirective {
       this.todoMenu.showMenu(this.elementRef, this.viewcontainerRef);    
     }
 
+    @HostListener('window:keyup', ['$event'])
+    keyEvent(event: KeyboardEvent){
+      if(event.keyCode === 9){
+        this.todoMenu.closeMenu();
+      }
+    }
 
 }

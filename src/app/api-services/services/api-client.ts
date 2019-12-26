@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
-import { concat, delay, map, mergeMap, retryWhen, take } from 'rxjs/operators';
+import { concat, delay, map, mergeMap, retryWhen, take, tap } from 'rxjs/operators';
 import { HttpResponse } from '../models/http-response';
 
 
