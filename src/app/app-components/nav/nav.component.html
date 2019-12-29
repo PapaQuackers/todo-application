@@ -5,7 +5,6 @@
       <li class="nav-bar__list--non-item searchbar"> 
         <input [todoMenu]="menuTemplate" placeholder="Search..." #input [formControl]="searchControl"/>
           <todo-menu (selectedValue)="logValue($event)" #menuTemplate>
-            <todo-menu-option *ngIf="(todoSearches$ === null || todoSearches$ === undefined) || (todoSearches$ | async)?.length === 0">Search for a value</todo-menu-option>
             <todo-menu-option *ngFor="let todo of todoSearches$ | async" [value]="todo.id">{{todo.comment}}</todo-menu-option>
           </todo-menu>
       </li>

@@ -20,7 +20,7 @@ export class MenuComponent implements AfterContentInit, OnDestroy {
   private componentDestroyed$: Subject<void> = new Subject<void>();
   private combinedObservable$: Observable<any>;
 
-  overlayRef: OverlayRef;
+  overlayRef: OverlayRef = null;
 
   constructor(
     private overlay: Overlay) { }
@@ -54,15 +54,12 @@ export class MenuComponent implements AfterContentInit, OnDestroy {
   }
 
   showMenu(elementRef: ElementRef, viewContainerRef){
-      const positionStrategy = this.overlay.position()
-      .flexibleConnectedTo(elementRef)
-      .withPositions(this.getPositions())
-      .withPush(false);
        this.overlayRef = this.overlay.create({
-        positionStrategy,
+        positionStrategy: this.getOverlayPosition(elementRef),
         width: elementRef.nativeElement.offsetWidth,
         hasBackdrop: true,
-        backdropClass: 'cdk-overlay-transparent-backdrop'
+        backdropClass: 'cdk-overlay-transparent-backdrop',
+        scrollStrategy: this.overlay.scrollStrategies.reposition()
       })
       const menu = new TemplatePortal(this.content, viewContainerRef);
       this.overlayRef.attach(menu);
@@ -74,25 +71,28 @@ export class MenuComponent implements AfterContentInit, OnDestroy {
   }
   
   closeMenu(){
-        this.overlayRef.dispose();
+    if(this.overlayRef !== null){
+      this.overlayRef.detach();
+      this.overlayRef = null;
+    }
+
   }
 
-    private getPositions(): ConnectionPositionPair[] {
-    return [
-      {
-        originX: 'center',
-        originY: 'top',
-        overlayX: 'center',
-        overlayY: 'bottom'
-      },
-      {
-        originX: 'center',
-        originY: 'bottom',
-        overlayX: 'center',
-        overlayY: 'top',
-      },
-    ]
-   }
+  private getOverlayPosition(origin) {  
+    const positions = [  
+      new ConnectionPositionPair(  
+        { originX: 'start', originY: 'bottom' },  
+        { overlayX: 'start', overlayY: 'top' }  
+      )  
+    ];  
+  
+    return this.overlay  
+      .position()  
+      .flexibleConnectedTo(origin)  
+      .withPositions(positions)  
+      .withFlexibleDimensions(false)  
+      .withPush(false);  
+  }  
 
    ngOnDestroy(){
      this.componentDestroyed$.next();

@@ -1,8 +1,17 @@
 
 <h1>Welcome to Todo Manager!</h1>
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <input type="text" placeholder="Username" formControlName="userName">
-    <input type="password" placeholder="Password" formControlName="password">
-    <button todo-button>Login</button>
+    <todo-form-control>
+        <input type="text" placeholder="Username" formControlName="userName">
+    </todo-form-control>
+    <todo-form-control>
+            <input type="password" placeholder="Password" formControlName="password">
+    </todo-form-control>
+    <button todo-button [disabled]="loading$ | async">
+        <span *ngIf="!(loading$ | async)">Login</span>
+        <todo-spinner *ngIf="(loading$ | async)"></todo-spinner>
+    </button>
 </form>
-<div>Not registered? <button todo-link-button (click)="emitRegistrationRequested()">Create an account</button></div>
+<div>Not registered? 
+    <button todo-link-button (click)="emitRegistrationRequested()">Create an account</button>
+</div>

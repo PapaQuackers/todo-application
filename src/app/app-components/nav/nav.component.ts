@@ -24,7 +24,7 @@ export class NavComponent implements OnInit {
   ngOnInit() {
     this.userData$ = this.applicationService.user$;
     this.searchControl.valueChanges.pipe(
-      debounceTime(1000),
+      debounceTime(200),
       distinctUntilChanged()
     ).subscribe(v => {
       this.searchTodos(v)

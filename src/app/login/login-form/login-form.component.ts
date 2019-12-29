@@ -2,6 +2,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { LoginModel } from './login-model';
 import { UserService } from '../services/user.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'todo-login-form',
@@ -12,6 +13,7 @@ export class LoginFormComponent implements OnInit {
 
   
   loginForm: FormGroup;
+  loading$: Observable<boolean>;
 
   @Output()
   registrationRequested: EventEmitter<void> = new EventEmitter();
@@ -25,7 +27,8 @@ export class LoginFormComponent implements OnInit {
     this.loginForm = this.fb.group({
       userName: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required]),
-    })
+    });
+    this.loading$ = this.userService.loadingObservable$;
   }
 
 

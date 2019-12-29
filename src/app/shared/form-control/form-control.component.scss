@@ -1,0 +1,38 @@
+:host{
+    display: inline-block;
+    font-size: 2rem;
+    font-family: inherit;
+    margin-bottom: 5px;
+    padding: 1rem 2rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 6px;
+    color: var(--primary-color);
+    transition: all .2s;
+}
+
+:host(.input-focus) {
+    outline:none;
+    border: 1px solid darken(#e74c3c, 20%);
+}
+
+
+:host ::ng-deep input{
+        font-size: 2rem;
+        font-family: inherit;
+        padding: 0;
+        border: none;
+        color: var(--primary-color);
+        width: 100%;
+        &::placeholder{
+            color: darkgrey;
+        }
+        &:focus{
+            outline: none;
+        }
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover, 
+        &:-webkit-autofill:focus, 
+        &:-webkit-autofill:active  {
+            box-shadow: 0 0 0 30px white inset !important;
+        }
+}
