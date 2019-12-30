@@ -1,0 +1,23 @@
+:host{
+    display: block;
+    height: 100%;
+    background: #fafafa;
+    display: flex;
+
+    * {
+        flex: 1;
+    }
+
+    .content-body{
+        background: white;
+    }
+
+    .side-nav-container{
+        display: flex;
+        justify-content: flex-end;
+        * {
+            flex: .33;
+            margin-left: auto;
+        }
+    }
+}

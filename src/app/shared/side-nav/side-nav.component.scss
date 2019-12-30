@@ -1,0 +1,38 @@
+:host{
+    display: inline-block;
+}
+
+.nav-list{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    font-family: inherit;
+    &__item{
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: stretch;
+        cursor: pointer;
+
+        &:hover{
+            background: white;
+        }
+        &--icon{
+            display: block;
+            height: 15px;
+            width: 15px;
+            border-radius: 3px;
+            margin-right: 5px;
+            background: lightblue;
+        }
+
+        &--text{
+
+        }
+    }
+}

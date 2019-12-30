@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { User } from 'src/app/models/user.model';
 import { TodoApi } from 'src/app/api-services/services/todo-api';
 import { Todo } from 'src/app/models/todo.model';
-import { map, debounceTime, distinctUntilChanged, share } from 'rxjs/operators';
+import { map, debounceTime, distinctUntilChanged, share, startWith } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
 
 
@@ -24,6 +24,7 @@ export class NavComponent implements OnInit {
   ngOnInit() {
     this.userData$ = this.applicationService.user$;
     this.searchControl.valueChanges.pipe(
+      startWith(''),
       debounceTime(200),
       distinctUntilChanged()
     ).subscribe(v => {

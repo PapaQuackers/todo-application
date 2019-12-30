@@ -11,13 +11,12 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './api-services/services/interceptor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastModule } from './shared/toast/toast.module';
-import { SpinnerComponent } from './shared/spinner/spinner.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent
+    NavComponent,
   ],
   imports: [
     BrowserModule,
