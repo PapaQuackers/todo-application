@@ -1,6 +1,8 @@
 
 <div class="side-nav-container">
-    <todo-side-nav></todo-side-nav>
+    <todo-side-nav [navItems]="navItems"></todo-side-nav>
 </div>
-<div class="content-body"></div>
+<div class="content-body">
+    <router-outlet></router-outlet>
+</div>
 <div class="space-filler"></div>

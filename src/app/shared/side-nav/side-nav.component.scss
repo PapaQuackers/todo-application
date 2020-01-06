@@ -13,11 +13,24 @@
     font-size: 14px;
     font-family: inherit;
     &__item{
+
         padding: 10px;
         display: flex;
         align-items: center;
         justify-content: stretch;
         cursor: pointer;
+
+        &:active{
+            outline: none;
+        }
+
+        &:visited {
+            outline: none;
+        }
+
+        &:focus{
+            outline: none;
+        }
 
         &:hover{
             background: white;
@@ -28,11 +41,17 @@
             width: 15px;
             border-radius: 3px;
             margin-right: 5px;
-            background: lightblue;
         }
 
         &--text{
+            text-decoration: none;
+            color: black;
+        }
 
+        &.activeLink {
+            background: white;
+            color: black;
+            font-weight: 700;
         }
     }
 }

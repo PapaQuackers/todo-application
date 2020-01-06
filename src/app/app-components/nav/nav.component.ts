@@ -41,7 +41,6 @@ export class NavComponent implements OnInit {
   }
 
   searchTodos(search: string){
-    console.log(search);
     this.todoSearches$ = this.todoAPI.getAllTodos(search).pipe(
       map(r => r.data),
       share()
